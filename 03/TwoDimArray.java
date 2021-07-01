@@ -22,8 +22,8 @@ public class TwoDimArray
   // using a FOREACH loop
   public static void print2( int[][] a ) {
     for(int[] row: a){
-      for(int column: row){
-        System.out.print(column + " ");
+      for(int element: row){
+        System.out.print(element + " ");
       }
         System.out.println();
     }
@@ -92,8 +92,8 @@ public class TwoDimArray
     int sum = 0;
 
     //Create nested FOREACH loops to add the running total
-    for(int column: m[r]){
-      sum += column;
+    for(int element: m[r]){
+      sum += element;
     }
 
     //Return running total
