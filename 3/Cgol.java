@@ -21,25 +21,27 @@ public class Cgol
     //Initialize a new array of characters
     char[][] a = new char[rows][cols];
 
-    for(char[] row: a){
-      for(char element: row){
-        element = '-';
-      }
+    //Use a nested for loop to initialize the empty board
+    for(int i = 0; i < a.length; i++){
+        for(int j = 0; j < a[i].length; j++){
+            a[i][j] = '-';
+        }
     }
 
+    //Return the initialized array
     return a;
   }
 
-
   //print the board to the terminal
   public static void printBoard(char[][] board) {
+    //Use a nested for loop to print each cell in the board
     for(int row = 0; row < board.length; row++) {
       for (int col = 0; col < board[row].length; col++){
         System.out.print(board[row][col] + " ");
       }
+      System.out.println();
     }
   }
-
 
   //set cell (r,c) to val
   public static void setCell(char[][] board, int r, int c, char val){
@@ -74,7 +76,8 @@ public class Cgol
   {
 
     char[][] board;
-    board = createNewBoard(25,25);
+    board = createNewBoard(5,5);
+    printBoard(board);
     //breathe life into some cells:
     setCell(board, 0, 0, 'X');
     setCell(board, 0, 1, 'X');
@@ -84,7 +87,7 @@ public class Cgol
     // try out different starting configurations of living cells...
     // (Feel free to comment out the above three lines.)
     System.out.println("Gen X:");
-    printBoard(board);
+    // printBoard(board);
     System.out.println("--------------------------\n\n");
     /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
