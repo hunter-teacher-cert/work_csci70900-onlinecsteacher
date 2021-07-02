@@ -132,26 +132,66 @@ public class Cgol
     return newBoard;
   }
 
+  // pause for n milliseconds
+  public static void delay(int n) {
+    try {
+      Thread.sleep(n);
+    }
+    catch(InterruptedException e) {}
+  }
+
+  // "repaint" by using an ANSI control character to
+  // repeatedly place the cursor at the origin (upper left)
+  public static void animate(int n, char[][] board) {
+    //clear screen, place cursor at origin (upper left)
+    System.out.print("[0;0H\n");
+
+    // System.out.println("we are aaanimaniacs " + n);
+
+    // After you have predicted/observed/reconciled
+    // behavior of the preceding line,
+    // comment it out,
+    // uncomment the for loop below, and
+    // re-apply your process.
+
+
+    // for( int i=n; i > 0; i-- ) {
+    //   System.out.println("we are aaanimaniacs " + i);
+    // }
+
+    System.out.println("Gen X+" + n + ":");
+    printBoard(board);
+    System.out.println("--------------------------\n\n");
+
+    delay(1000);
+  }
+
+
+
   public static void main( String[] args )
   {
 
     char[][] board;
-    board = createNewBoard(25,25);
-    printBoard(board);
+    board = createNewBoard(10,10);
+    // printBoard(board);
 
     //breathe life into some cells:
-    setCell(board, 0, 1, 'X');
-    setCell(board, 1, 2, 'X');
-    setCell(board, 2, 0, 'X');
-    setCell(board, 2, 1, 'X');
-    setCell(board, 2, 2, 'X');
+    // box around 4,4
+    setCell(board, 3, 3, 'X');
+    setCell(board, 3, 4, 'X');
+    setCell(board, 3, 5, 'X');
+    setCell(board, 4, 3, 'X');
+    setCell(board, 4, 5, 'X');
+    setCell(board, 5, 3, 'X');
+    setCell(board, 5, 4, 'X');
+    setCell(board, 5, 5, 'X');
     // TASK:
     // Once your initial version is running,
     // try out different starting configurations of living cells...
     // (Feel free to comment out the above three lines.)
-    System.out.println("Gen X:");
-    printBoard(board);
-    System.out.println("--------------------------\n\n");
+    // System.out.println("Gen X:");
+    // printBoard(board);
+    // System.out.println("--------------------------\n\n");
 
     // testing countNeighbors()
     // System.out.println("0,0 living neighbors: " + countNeighbours(board,0,0)); // should be 2
@@ -200,34 +240,37 @@ public class Cgol
 
 
 
+    // FEATURE: Allow user to step through generations
+    // Scanner in = new Scanner(System.in);
+    // char userInput;
+    // int counter = 0;
+    // //While user presses "Y" show next generation newBoard
+    // do {
+    //   //Prompt user to enter Y or N
+    //   System.out.print("Do you want to see the next board? Choose Y or N.\n");
+    //
+    //   //Read in user input
+    //   userInput = in.next().charAt(0);
+    //
+    //   //If user input is invalid throw an error message
+    //   if(userInput == 'Y'){
+    //     board = generateNextBoard(board); //generate the next gameBoard
+    //     counter++;                        //increase counter by 1
+    //     System.out.println("Gen X+" + counter + ":"); //print generation of next board
+    //     printBoard(board);                //print next board
+    //     System.out.println("--------------------------\n\n");
+    //   } else if (userInput == 'N'){
+    //       break;
+    //   } else {
+    //     System.out.print("Invalid response. Choose Y or N.\n");
+    //   }
+    // } while(userInput != 'N');
 
-    Scanner in = new Scanner(System.in);
-    char userInput;
-    int counter = 0;
-
-    //While user presses "Y" show next generation newBoard
-    do {
-      //Prompt user to enter Y or N
-      System.out.print("Do you want to see the next board? Choose Y or N.\n");
-
-      //Read in user input
-      userInput = in.next().charAt(0);
-
-      //If user input is invalid throw an error message
-      if(userInput == 'Y'){
-        board = generateNextBoard(board); //generate the next gameBoard
-        counter++;                        //increase counter by 1
-        System.out.println("Gen X+" + counter + ":"); //print generation of next board
-        printBoard(board);                //print next board
-        System.out.println("--------------------------\n\n");
-      } else if (userInput == 'N'){
-          break;
-      } else {
-        System.out.print("Invalid response. Choose Y or N.\n");
-      }
-    } while(userInput != 'N');
-
-
+    // ANIMATION
+    for (int frame = 0; frame < 20; frame++) {
+      animate(frame,board);
+      board = generateNextBoard(board);
+    }
 
 
 
