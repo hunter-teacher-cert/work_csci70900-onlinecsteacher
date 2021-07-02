@@ -1,0 +1,19 @@
+/*
+
+1. Output:
+
+No, I wug. You wugga wug. I wug.
+
+The main program starts by printing "No, I " and then calling zoop() which calls baffle(). baffle() prints "wug" and calls ping() which prints "." Then having return from ping() to baffle(), we return to zoop() which now prints "You wugga " and then calls baffle() again, thereby printing "wug" and then calling ping() to print "." We exit out of zoop() and return to the main program which now prints "I " and then calls baffle() which prints "wug" then calls ping() to print "." Then the program has reached the last line of main().
+
+
+2.
+main: "No, I", calls zoop()
+zoop(): calls baffle()
+baffle(): "wug", calls ping()
+ping(): "."
+
+
+3. If you invoke baffle() at the end of the ping() method you will get a never-ending loop that keeps sending the computer from ping() to baffle() and from baffle() back to ping().
+
+*/
