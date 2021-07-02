@@ -25,7 +25,7 @@ import java.util.*;
    NOTA BENE:  All births and deaths occur simultaneously. Together, they constitute a single generation
 */
 
-public class Cgol
+public class CgolAnimate
 {
 
   //initialize empty board (all cells dead)
@@ -176,15 +176,23 @@ public class Cgol
     // printBoard(board);
 
     //breathe life into some cells:
-    // box around 4,4
-    setCell(board, 3, 3, 'X');
-    setCell(board, 3, 4, 'X');
-    setCell(board, 3, 5, 'X');
-    setCell(board, 4, 3, 'X');
-    setCell(board, 4, 5, 'X');
-    setCell(board, 5, 3, 'X');
-    setCell(board, 5, 4, 'X');
-    setCell(board, 5, 5, 'X');
+    // // box around 4,4
+    // setCell(board, 3, 3, 'X');
+    // setCell(board, 3, 4, 'X');
+    // setCell(board, 3, 5, 'X');
+    // setCell(board, 4, 3, 'X');
+    // setCell(board, 4, 5, 'X');
+    // setCell(board, 5, 3, 'X');
+    // setCell(board, 5, 4, 'X');
+    // setCell(board, 5, 5, 'X');
+
+    // Original GOL starting configuration
+    setCell(board, 0, 1, 'X');
+    setCell(board, 1, 2, 'X');
+    setCell(board, 2, 0, 'X');
+    setCell(board, 2, 1, 'X');
+    setCell(board, 2, 2, 'X');
+
     // TASK:
     // Once your initial version is running,
     // try out different starting configurations of living cells...
