@@ -3,9 +3,12 @@ public class Fib {
 
   public static void main(String[] args) {
 
+    //Initialize a variable to print out max number of Fibonacci values
     int max = 10;
 
-    for(int i = 0; i < max; i++){
+    //Use a for loop to print out the values of the Fibonacci sequence,
+    //from fib(0) to fib(max)
+    for(int i = 0; i <= max; i++){
       System.out.printf("Fib(%d) = %d\n",i,FibRec(i));
     }
 
@@ -16,21 +19,21 @@ public class Fib {
     */
   }
 
-
-   public static int FibRec(int n){
-// Create a base case when n=0
-     if (n == 0){
+  //Function FibRec returns the value of the nth term in the Fibonacci sequence
+  public static int FibRec(int n){
+    // Create a base case when n = 0
+    if (n == 0){
        return 0;
      }
-     // Create a base case when n=1
+     // Create a base case when n = 1
      else if (n == 1){
        return 1;
      }
      //recursion calls FibRec for all other values of n
      else {
        return (FibRec(n-2) + FibRec(n-1));
-     }
-   }
+    }
+  }
 }
 
 
