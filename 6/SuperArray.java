@@ -182,8 +182,9 @@ public class SuperArray
     //1.  create a new array with a given Size
     //2.  fill it with values from old array and possibly add new values
     //3.  set new array as default data array
-
-    // create a new array with extra space
+    //4.  Within add method call grow;  grow is a helper function to add
+    // create a new array with extra space; in the driver file the user is
+    //adding x values (ex 3); if there's room add; if not room; call grow
     // Q: How did you decide how much to increase capacity by?
 
     // copy over all the elements from the old array to the new one
