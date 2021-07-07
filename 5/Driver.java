@@ -43,6 +43,11 @@ public class Driver {
     Time runningTime = new Time(2, 16, 0.0);
     Time endTime = Time.add(startTime, runningTime);
 
+    //Print out the start time, running time, and end time
+    System.out.print(startTime.toString());
+    System.out.print(runningTime.toString());
+    System.out.print(endTime.toString());
+
   }//end main()
 
 }//end class
