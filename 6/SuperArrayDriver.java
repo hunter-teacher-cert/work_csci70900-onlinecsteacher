@@ -67,6 +67,12 @@ import java.util.*;public class SuperArrayDriver
     System.out.println(sa3);
     System.out.println("Number of elements in sa3: " + sa3.getNumberElements());
 
+    //Test out the new set() method
+    System.out.println("\nTesting set(2,100) in sa3");
+    sa3.set(2, 100);
+    System.out.println(sa3);
+    System.out.println("Number of elements in sa3: " + sa3.getNumberElements());
+
     //sa.remove(15);
     //System.out.println(sa);
     /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

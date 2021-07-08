@@ -165,6 +165,13 @@ public class SuperArray
     return value;
   }
 
+  //go to a given index and change the value stored there (example index 2 value 15)
+  public void set(int index, int value)
+  {
+    //Set value at the given index to the value given by the parameter
+    this.data[index] = value;
+  }
+
   public int getNumberElements()
   {
     return this.numberElements;
