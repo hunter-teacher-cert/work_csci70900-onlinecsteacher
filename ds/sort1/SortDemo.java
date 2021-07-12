@@ -85,29 +85,33 @@ public class SortDemo{
     int temp; //Create a temp variable to store the value being swapped
 
     //Iterate through the data array to sort all values by swapping
-    for (i = 0; i < data.size()-1; i++){
+    for (i = 0; i < data.size() - 1; i++){
 
       int j = findSmallestIndex(i);  // find the smallest index from i to end
 
       //Swap the item at that index and i
-      temp=this.data.get(j);
-      this.data.set(j,this.data.get(i));
-      this.data.set(i,temp);
-
-
+      temp = this.data.get(j); //set temp to value at smallest index
+      this.data.set(j,this.data.get(i)); //set value at smallest index to value at i
+      this.data.set(i,temp); //set value at i to the value stored in temp
+      //System.out.println(this.data.toString()); test how sort() works
     }
   }
   /* If you finish the lab early you can get started on this */
   public int linearSearch(int value){
-    // loop through the ArrayList data
-    // and if the value you're searchign for is in the ArrayList, return it.
-    // return -1 if it isn't there.
-    return 0; // replace this return
+
+    // Loop through the ArrayList data
+    for (int i = 0; i < data.size(); i++){
+
+      //If the value you're searching for is in the ArrayList...
+      if(this.data.get(i) == value){
+        return i;  //...return the index
+      }
+    }
+    return -1; // return -1 if it isn't there.
   }
 
   /* If you finish the lab early you can get started on this */
   public int binarySearch(int value){
-    boolean replacethiswithrealexpression=false;
     int lowerIndex = 0;
     int upperIndex = data.size();
     int middleIndex = data.size()/2;
@@ -116,17 +120,29 @@ public class SortDemo{
             you have to replace the "replacethiswithrealexpression" boolean
             with a correct expression based on lowerIndex and upperIndex
     */
-    while (replacethiswithrealexpression) {
-      // update lower and upper.
+    // update lower and upper.
       // remember if value is less than data.get(middleIndex) you want to search next time
       // from lower to the middle and otherwise from the middle to the upper.
       //
       // then update middleIndex based on new lowerIndex and upperIndex.
-      }
-    /* replace this return to either return the value if it was found and -1
+      /* replace this return to either return the value if it was found and -1
       if upperIndex and lowerIndex crossed
     */
-    return 0; // replace this return
+    while (lowerIndex <= upperIndex) {
+      if (value < this.data.get(middleIndex)){
+        upperIndex = middleIndex -1;
+        middleIndex = (lowerIndex+upperIndex)/2;
+      }
+      else
+        if (value > this.data.get(middleIndex)){
+           lowerIndex = middleIndex +1;
+           middleIndex = (lowerIndex+upperIndex)/2;
+        }
+        else {
+          return middleIndex;
+        }
+      }
+    return -1; // replace this return
   }
 
   public String toString(){
