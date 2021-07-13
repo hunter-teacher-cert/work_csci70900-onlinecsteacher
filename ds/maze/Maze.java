@@ -62,7 +62,7 @@ public class Maze{
 	return result;
     }
 
-    public boolean solve(int col,int row){
+  public boolean solve(int col,int row){
 	boolean solved;
 
 	System.out.println(clearScreen+this);

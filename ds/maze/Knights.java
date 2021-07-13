@@ -1,16 +1,22 @@
+/*
+Tiffany Wong
+Emma Wingreen
+Chaouiki Hadjahmed
+*/
+
 import java.io.*;
 import java.util.*;
 
 public class Knights{
 
 
-    // the board is of ints rather than chars like the maze
-    // since we want to track the moves by number
+  // the board is of ints rather than chars like the maze
+  // since we want to track the moves by number
 
   private int[][] board;
   private int rows = 5;
   private int cols = 5;
-  private int size=5;
+  private int size = 5;
   private String clearScreen="[0;0H\n";
 
   private void delay(int n){
@@ -24,7 +30,7 @@ public class Knights{
   public Knights(int size){
   	rows = size;
   	cols = size;
-  	this.size=size;
+  	this.size = size;
   	int row,col;
 
   	// Notice that the board is 4 bigger in both directions with 0's
@@ -55,10 +61,12 @@ public class Knights{
 
       		// Why do we have this if as opposed to
       		// just adding the next value to the string?
+
+          //A: for formatting & even spacing reasons
       		if (value < 10 && value >= 0){
-      		    result = result + "0" + value+ " ";
+      		    result = result + "0" + value + " "; //changes 1 to 01
           } else {
-            result = result + value + " ";
+            result = result + value + " "; //numbers greater than 9 or less than 0 don't change
           }
 	       }
 
@@ -70,7 +78,7 @@ public class Knights{
 
   public boolean solve(int col,int row, int count){
 	   boolean solved = false;
-
+     count++;
 
   	// This should return true when we've solved the problem
   	// What should CHANGETHIS be?
@@ -78,9 +86,9 @@ public class Knights{
   	// here, when do we know when we're done?
   	// HINT: you have an nxn board and are done when you've visited
   	// every board location
-  	if (count>CHANGETHIS){
+  	if (count > col * row){
   	    System.out.println(this);
-  	    return true;
+  	    return true; //Visited all spots on the board
   	}
 
 
@@ -88,16 +96,17 @@ public class Knights{
   	// change CHANGETHIS to the appropriate boolean
   	// HINT: we are tracking our moves in the board
   	// and also built that border of -1 values.
-  	if (CHANGETHIS){
-  	    return false;
+  	if (board[col][row] == -1){
+
+  	    return false; //Tried to visit a spot out of bounds
   	}
 
 
-  	// what do we put into the board
+	// what do we put into the board
   	// Change CHANGETHIS
-  	board[col][row]=CHANGETHIS;
+  	board[col][row] = count;
 
-  	delay(50);
+    delay(1000);
   	System.out.println(clearScreen+this);
 
 
@@ -107,11 +116,42 @@ public class Knights{
   	// 1. The maze had only four calls.
   	// 2. The parameters for the call are a little different.
   	// Add the recursive calls here
+    solved = solve(col+1,row+2,count);
 
+    if (!solved) {
+      solved = solve(col+1,row-2,count);
+    }
+
+    if (!solved) {
+      solved = solve(col+2,row-1,count);
+    }
+
+    if (!solved) {
+    solved = solve(col-2,row-1,count);
+    }
+
+    if (!solved) {
+      solved = solve(col-1,row+2,count);
+    }
+
+    if (!solved) {
+      solved = solve(col-1,row-2,count);
+    }
+
+    if (!solved) {
+    solved = solve(col+2,row+1,count);
+    }
+
+    if (!solved) {
+    solved = solve(col-2,row+1,count);
+    }
 
   	// Here we unset where we were for the backtracking
+    //If the board is not yet filled, undo the incorrect moves
+    //and keep going from the last node
 
   	board[col][row] = 0;
+    count--;  //backtrack and decrease count by 1
   	return solved;
-      }
+    }
 }
