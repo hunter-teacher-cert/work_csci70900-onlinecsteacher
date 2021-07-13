@@ -77,9 +77,9 @@ public class Knights{
   }
 
   public boolean solve(int col,int row, int count){
-	   boolean solved = false;
-     count++;
-     System.out.print("Count = " + count);
+
+     boolean solved = false; //set the default "solved" value to false
+     count++; //increase the count of what step you are at
 
   	// This should return true when we've solved the problem
   	// What should CHANGETHIS be?
@@ -87,18 +87,17 @@ public class Knights{
   	// here, when do we know when we're done?
   	// HINT: you have an nxn board and are done when you've visited
   	// every board location
-  	if (count > col * row){
-  	    System.out.println(this);
-        solved = true;
-        return solved; //Visited all spots on the board
+  	if (count > 25){ //if you have filled all the spots in the board...
+  	    System.out.println(this); //...print out the board because...
+        solved = true; //...the board has been solved
+        return solved;
   	}
 
   	// this should return false when we're at an illegal location
   	// change CHANGETHIS to the appropriate boolean
   	// HINT: we are tracking our moves in the board
   	// and also built that border of -1 values.
-  	if (board[col][row] == -1 || board[col][row] != 0){
-        count--;
+  	if (board[col][row] == -1 || board[col][row] != 00){
         solved = false;
         return solved; //Tried to visit a spot out of bounds
   	}
@@ -117,55 +116,50 @@ public class Knights{
   	// 2. The parameters for the call are a little different.
   	// Add the recursive calls here
     solved = solve(col+1,row+2,count);
-    System.out.println("call 1");
+    //System.out.println("call 1");
 
     if (!solved) {
       solved = solve(col+1,row-2,count);
-      System.out.println("call 2");
+      //System.out.println("call 2");
     }
 
     if (!solved) {
       solved = solve(col+2,row-1,count);
-      System.out.println("call 3");
+      //System.out.println("call 3");
     }
 
     if (!solved) {
       solved = solve(col-2,row-1,count);
-      System.out.println("call 4");
+      //System.out.println("call 4");
     }
 
     if (!solved) {
       solved = solve(col-1,row+2,count);
-      System.out.println("call 5");
+      //System.out.println("call 5");
     }
 
     if (!solved) {
       solved = solve(col-1,row-2,count);
-      System.out.println("call 6");
+      //System.out.println("call 6");
     }
 
     if (!solved) {
       solved = solve(col+2,row+1,count);
-      System.out.println("call 7");
+      //System.out.println("call 7");
     }
 
     if (!solved) {
       solved = solve(col-2,row+1,count);
-      System.out.println("call 8");
+      //System.out.println("call 8");
     }
 
-  /*
 
   	// Here we unset where we were for the backtracking
-    //If the board is not yet filled, undo the incorrect moves
-    //and keep going from the last node
-
+    // If the board is not yet filled, undo the incorrect moves
 
     count--;  //backtrack and decrease count by 1
-
-    */
-
     board[col][row] = 0;
+
     return solved;
 
     }
