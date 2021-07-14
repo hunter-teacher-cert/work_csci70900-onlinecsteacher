@@ -30,7 +30,7 @@ public class Node {
     next = n;
   }//setNext
 
-  public String getData() {
+  public String getValue() {
     return data;
   }//end getValue
 
