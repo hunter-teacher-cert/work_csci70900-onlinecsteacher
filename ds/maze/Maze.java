@@ -24,11 +24,10 @@ public class Maze{
 	    int col = 0;
 
 	    for (row = 0; row < rows; row++){
-		for (col = 0; col < cols ; col++){
-		    board[col][row] = ' ';
-		}
+    		for (col = 0; col < cols ; col++){
+    		    board[col][row] = ' ';
+    		}
 	    }
-
 
 	    File file = new File(filename);
 	    FileReader reader = new FileReader(file);
@@ -37,10 +36,10 @@ public class Maze{
 	    String line;
 	    row = 0;
 	    while( (line=breader.readLine()) != null )  {
-		for (col = 0; col < line.length()-1 ; col++){
-		    board[col][row] = line.charAt(col);
-		}
-		row++;
+  		for (col = 0; col < line.length()-1 ; col++){
+  		    board[col][row] = line.charAt(col);
+  		}
+    		row++;
 	    }
 
 	} catch (IOException e){

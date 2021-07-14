@@ -8,18 +8,19 @@ public class Driver{
 
     boolean solved;
 
-    /*
+
   	Maze m = new Maze("maze.dat");
     System.out.println(m);
-  	solved = m.solve(1,1);
+  	solved = m.solve(0,0);
 
-	*/
-
+  /*
 	  Knights k = new Knights(5);
     System.out.println(k);
 	  solved = k.solve(2,2,0);
 
   	// Knights k = new Knights(5);
   	// k.solve(2,2,1);
+
+  */
   }
 }
