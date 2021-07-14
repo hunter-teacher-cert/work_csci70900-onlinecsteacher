@@ -33,4 +33,8 @@ class Main {
     return temp;
     //What do we need to return?
     //Can we trace this out with an example power(2.0, 3)?
+
+    public static void main(String[] args) {
+      System.out.println(power(2.0, 3));
+    }
 }
