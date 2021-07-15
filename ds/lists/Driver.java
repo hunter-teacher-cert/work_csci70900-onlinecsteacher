@@ -2,20 +2,21 @@ import java.io.*;
 import java.util.*;
 
 public class Driver{
-    public static void main(String[] args) {
-	Node n;
-	n = new Node();
-	n.setData("Eduardo");
+  public static void main(String[] args) {
+    /*
+    Node n;
+  	n = new Node();
+  	n.setData("Eduardo");
 
 
-	Node n2 = new Node("Brian");
-	n.setNext(n2);
+  	Node n2 = new Node("Brian");
+  	n.setNext(n2);
 
-	System.out.println(n);
+  	System.out.println(n);
 
-	System.out.println(n2);
+  	System.out.println(n2);
 
-	System.out.println(n.getNext());
+  	System.out.println(n.getNext());
 
   //Node n3 = new Node("Steph");
 
@@ -54,22 +55,41 @@ public class Driver{
 	//    between the b and the c
 	// 3. Write the code to delete the c
 
+*/
+
   //Call Llist.java file
   System.out.println("\n");
 	System.out.println("Llist");
 	System.out.println("-----------");
 
 	Llist ll = new Llist();
-  ll.addFront("Eduardo");
+  System.out.println(ll);
+  System.out.println("length = " + ll.length());
+  System.out.println(ll.isEmpty());
+
+  //Call Llist.java file
+  System.out.println("\n");
+  System.out.println("Llist");
+  System.out.println("-----------");
+  ll.addFront("A");
 	System.out.println(ll);
+  System.out.println("length = " + ll.length());
 
   //Call Llist.java file
   System.out.println("\n");
 	System.out.println("Llist (updated)");
 	System.out.println("-----------");
 
-  ll.addFront("Brian");
+  ll.addFront("B");
+  ll.addFront("C");
+  ll.addFront("D");
   System.out.println(ll);
+  ll.set(2, "Tiffany");
+  System.out.println(ll);
+  System.out.println("length = " + ll.length());
 
+  //check get() method
+  //System.out.println(ll.get(0));
+  //System.out.println(ll.get(1));
     }
 }
