@@ -69,7 +69,7 @@ public class Driver{
 
   //Call Llist.java file
   System.out.println("\n");
-  System.out.println("Llist");
+  System.out.println("Llist (add node 'A')");
   System.out.println("-----------");
   ll.addFront("A");
 	System.out.println(ll);
@@ -77,19 +77,73 @@ public class Driver{
 
   //Call Llist.java file
   System.out.println("\n");
-	System.out.println("Llist (updated)");
+	System.out.println("Llist (add nodes 'D' 'C')");
 	System.out.println("-----------");
 
-  ll.addFront("B");
   ll.addFront("C");
   ll.addFront("D");
   System.out.println(ll);
-  ll.set(2, "Tiffany");
+  System.out.println("length = " + ll.length());
+
+  //Check set() method
+  System.out.println("\nCheck set(2, 'Benson'):");
+  ll.set(2, "Benson");
+  System.out.println(ll);
+
+  //check get() method
+  System.out.println("\nCheck get(0):");
+  System.out.println(ll.get(0));
+
+  System.out.println("\nCheck get(1):");
+  System.out.println(ll.get(1));
+
+  //check insert() method
+  System.out.println("\nCheck insert(3, 'B'):");
+  ll.insert(3,"B");
   System.out.println(ll);
   System.out.println("length = " + ll.length());
 
-  //check get() method
-  //System.out.println(ll.get(0));
-  //System.out.println(ll.get(1));
+  //check insert() method
+  System.out.println("\nCheck insert(4, 'A'):");
+  ll.insert(4,"A");
+  System.out.println(ll);
+  System.out.println("length = " + ll.length());
+
+  //check search() method
+  System.out.println("\nCheck search('D'):");
+  System.out.println(ll.search("D"));
+
+  System.out.println("\nCheck search('F'):");
+  System.out.println(ll.search("F"));
+
+  //check remove() method
+  System.out.println("\nCheck remove(0):");
+  ll.remove(0);
+  System.out.println(ll);
+  System.out.println("length = " + ll.length());
+
+  //check remove() method
+  System.out.println("\nCheck remove(3):");
+  ll.remove(3);
+  System.out.println(ll);
+  System.out.println("length = " + ll.length());
+
+  //check remove() method
+  System.out.println("\nCheck remove(0):");
+  ll.remove(0);
+  System.out.println(ll);
+  System.out.println("length = " + ll.length());
+
+  //check remove() method
+  System.out.println("\nCheck remove(0):");
+  ll.remove(0);
+  System.out.println(ll);
+  System.out.println("length = " + ll.length());
+
+  //check remove() method
+  System.out.println("\nCheck remove(0):");
+  ll.remove(0);
+  System.out.println(ll);
+  System.out.println("length = " + ll.length());
     }
 }
