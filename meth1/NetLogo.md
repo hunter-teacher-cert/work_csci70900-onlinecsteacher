@@ -20,3 +20,4 @@ end
 - What do you think "create-turtles" does?
 - How about color, size, and heading ticks?
 - What would happen if we took out "ask turtles"?
+- What other sliders would you add to this model? 
