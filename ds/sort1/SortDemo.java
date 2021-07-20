@@ -1,10 +1,12 @@
 import java.io.*;
 import java.util.*;
+
 /*
 Setup:
  1.Make a folder under your work repo named: ds
  2. Make another folder under that named sort1
  3. Copy this file and SortDemoDriver.java into the ds/sort1 folder
+
 Lab:
 Part 1:
   1. Analyze the two constructors - try to figure out how they work.
@@ -17,135 +19,186 @@ Part 3:
   1. Complete the sort method - read comments for description
   2. Uncomment the lines in sortDemoDriver to test.
 */
-//ArrayList is a built in class (we built superArray which is an example of an ArrayList)
-//with methods to add, remove, etc.
+
 public class SortDemo{
 
   /* Instance Variables */
   private ArrayList<Integer> data;  // to store the data
+
   private Random r;
 
-  //SortDemo default constructor
-  //Generates and stores in an ArrayList 15 random integers that are between 0 and 19
+
   public SortDemo(){
-    data = new ArrayList<Integer>();
-    r = new Random(); //r is a variable that will store a number of type "Random"
-
-    for (int i=0;i<15;i++){ //generate 15 integers
-        data.add(r.nextInt(20)); //generate a random number from 0-19
-      }
+  	data = new ArrayList<Integer>();
+  	r = new Random();
+  	for (int i=0;i<15;i++){
+  	    data.add(r.nextInt(20));
+  	}
   }
 
-  //SortDemo constructor with parameters
-  //Generates and stores in an ArrayList "size" number of random integers that are between 0 and 19
   public SortDemo(int size){
-    data = new ArrayList<Integer>();
-    r = new Random();
-
-    for (int i=0;i<size;i++){
-        data.add(r.nextInt(20));
-      }
+  	data = new ArrayList<Integer>();
+  	r = new Random();
+  	for (int i=0;i<size;i++){
+  	    data.add(r.nextInt(20));
+  	}
   }
 
-  //get() method returns the value at a given index
   public int get(int index){
-    return this.data.get(index);
+	   return this.data.get(index);
   }
 
-  /*
-    return the index of the ArrayList data from index start to the end
-    Example, if the arraylist has:
-    5,3,10,6,8
-    if start was 2 (start at index 2, value 10) then it woudl return 3 which is the index of the value
-    6 which is the index with the smallest value from start to end
-  */
-  //What is the smallest value in this array and
-  //return the index of that value;
-
+    /*
+      return the index of the ArrayList data from index start to the end
+      Example, if the arraylist has:
+      5,3,10,6,8
+      if start was 2 (start at index 2, value 10) then it woudl return 3 which is the index of the value
+      6 which is the index with the smallest value from start to end
+    */
   public int findSmallestIndex(int start){
-    int smallIndex = start;
-    int i; // start a variable at the one after start
+	   int smallIndex = start;
 
-    // loop from that variable to end and update smallIndex as needed
-    for (i = smallIndex + 1; i < this.data.size(); i++){
+	// start a variable at the one after start
+	// your code here
 
-      //compare value at smallIndex to current value
-      //if the current value is smaller, store that value's index as the new smallIndex
+	// loop from that variable to end and update smallIndex as needed
+	// your code here
+  	int i;
+  	for (i = smallIndex + 1; i < this.data.size(); i++){
       if (this.data.get(i) < this.data.get(smallIndex)){
-        smallIndex = i;
-      }
-    } return smallIndex;
+  		      smallIndex = i;
+  	   }
+  	}
+	 return smallIndex;
   }
 
-  //sort() method calls SmallestIndex
-  //For example, swap 5 and 3 but need to store 3 in integer temp
+
   public void sort(){
-
-    int i;
-    int temp; //Create a temp variable to store the value being swapped
-
-    //Iterate through the data array to sort all values by swapping
-    for (i = 0; i < data.size() - 1; i++){
-
-      int j = findSmallestIndex(i);  // find the smallest index from i to end
-
-      //Swap the item at that index and i
-      temp = this.data.get(j); //set temp to value at smallest index
-      this.data.set(j,this.data.get(i)); //set value at smallest index to value at i
-      this.data.set(i,temp); //set value at i to the value stored in temp
-      //System.out.println(this.data.toString()); test how sort() works
+  	int i;
+  	int smallIndex;
+  	int tmp;
+  	for (i=0;i < data.size()-1; i++){
+  	    smallIndex = findSmallestIndex(i);
+  	    tmp = data.get(smallIndex);
+  	    data.set(smallIndex,data.get(i));
+  	    data.set(i,tmp);
+  	}
     }
-  }
-  /* If you finish the lab early you can get started on this */
-  public int linearSearch(int value){
 
-    // Loop through the ArrayList data
-    for (int i = 0; i < data.size(); i++){
 
-      //If the value you're searching for is in the ArrayList...
-      if(this.data.get(i) == value){
-        return i;  //...return the index
-      }
+
+    /* If you finish the lab early you can get started on this */
+    public int linearSearch(int value){
+
+
+	     return 0; // replace this return
+	   }
+
+	/* If you finish the lab early you can get started on this */
+	public int binarySearch(int value){
+	    return 0;
+
+	}
+
+
+    public String toString(){
+	return ""+data;
+    };
+
+    /*------------------------- MERGESORT STUFF -----------------*/
+
+
+    // Preconditions: a and b are ArrayLists of Integers and
+    //                both are in increasing order
+    // Return: a new ArrayList of Integers that is the result
+    //         of merging a and b. The new ArrayList
+    //         should be in increasing order
+    private ArrayList<Integer> merge(ArrayList<Integer> a,
+				     ArrayList<Integer> b){
+
+        //Initialize variables to store the index of ArrayList a and ArrayList b
+        int indexA = 0;
+        int indexB = 0;
+
+        //Make a new ArrayList<Integer> of size a.size + b.size to return
+        ArrayList<Integer> sorted = new ArrayList<Integer>();
+
+        //Iterate through the two arrays to merge them
+
+        //Testing to see if either ArrayList is already full.
+        //If so, add the next remaining element to the ArrayList
+        //and increment that ArrayList's counter.
+//while (!(indexA>19 && indexB>19))
+        for (int i = 0 ; i < (a.size()+b.size()) ; i=i+1){
+
+          if (indexA > 19)
+          {
+            sorted.add(b.get(indexB)); //add to ArrayList sorted, the value in ArrayList b
+            indexB++; //increment the index in ArrayList b
+          }
+          else if (indexB > 19)
+          {
+            sorted.add(a.get(indexA)); //add to ArrayList sorted, the value in ArrayList a
+            indexA++; //increment the index in ArrayList a
+          }
+
+          //Else both lists have at least one space, and the values can be compared, and the element can be added, and the index can be incremented.
+          else
+          {
+            //If the element in ArrayList a is greater than
+            //the element in ArrayList b...
+            if (a.get(indexA) > b.get(indexB)){
+
+              sorted.add(b.get(indexB)); //add to ArrayList sorted, the value in ArrayList b
+              indexB++; //increment the index in ArrayList b
+            }
+
+            //If the element in ArrayList b is greater than
+            //the element in ArrayList a...
+            else if (a.get(indexA) < b.get(indexB)){
+              sorted.add(a.get(indexA)); //add to ArrayList sorted, the value in ArrayList a
+              indexA++; //increment the index in ArrayList a
+            }
+
+            //If the elements in the 2 ArrayLists are equal...
+            else if (a.get(indexA) == b.get(indexB)){
+              sorted.add(a.get(indexA)); //add to ArrayList sorted, the value in ArrayList a
+              indexA++; //increment the index in ArrayList a
+              // sorted.add(b.get(indexB));
+              // indexB++;
+              // i++;
+            }
+          }
+        }//end of for loop
+
+
+
+        //Have pointers to look at each index in ArrayList a and ArrayList B
+        return sorted;
     }
-    return -1; // return -1 if it isn't there.
+
+  private ArrayList<Integer> fillForMerge(int size){
+  	ArrayList<Integer> a = new ArrayList<Integer>();
+  	int lastVal = r.nextInt(10);
+  	for (int i = 0 ; i < size ; i=i+1){
+  	    a.add(lastVal);
+  	    lastVal = lastVal + r.nextInt(10);
+  	}
+	return a;
+
   }
 
-  /* If you finish the lab early you can get started on this */
-  public int binarySearch(int value){
-    int lowerIndex = 0;
-    int upperIndex = data.size();
-    int middleIndex = data.size()/2;
-    /* if upper crosses lower it's not there and the lop should exit the loop
-      and if the item is at middle you should exit the loop
-            you have to replace the "replacethiswithrealexpression" boolean
-            with a correct expression based on lowerIndex and upperIndex
-    */
-    // update lower and upper.
-      // remember if value is less than data.get(middleIndex) you want to search next time
-      // from lower to the middle and otherwise from the middle to the upper.
-      //
-      // then update middleIndex based on new lowerIndex and upperIndex.
-      /* replace this return to either return the value if it was found and -1
-      if upperIndex and lowerIndex crossed
-    */
-    while (lowerIndex <= upperIndex) {
-      if (value < this.data.get(middleIndex)){
-        upperIndex = middleIndex -1;
-        middleIndex = (lowerIndex+upperIndex)/2;
-      }
-      else
-        if (value > this.data.get(middleIndex)){
-           lowerIndex = middleIndex +1;
-           middleIndex = (lowerIndex+upperIndex)/2;
-        }
-        else {
-          return middleIndex;
-        }
-      }
-    return -1; // replace this return
-  }
+  public void testMerge(){
 
-  public String toString(){
-    return ""+data;
-  };
+  	ArrayList<Integer> a = new ArrayList<Integer>();
+  	ArrayList<Integer> b = new ArrayList<Integer>();
+  	a = fillForMerge(20);
+  	b = fillForMerge(20);
+  	System.out.println(a);
+  	System.out.println(b);
+
+    //Call merge method
+    System.out.println(merge(a,b));
+
+    }
 }
