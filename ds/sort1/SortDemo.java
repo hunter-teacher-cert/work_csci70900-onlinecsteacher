@@ -128,18 +128,21 @@ public class SortDemo{
         //Testing to see if either ArrayList is already full.
         //If so, add the next remaining element to the ArrayList
         //and increment that ArrayList's counter.
-//while (!(indexA>19 && indexB>19))
+//Are both arrays full?
+//while (!(indexA>a.size() && indexB>b.size())
         for (int i = 0 ; i < (a.size()+b.size()) ; i=i+1){
 
-          if (indexA > 19)
+          if (indexA > (a.size()-1))
           {
             sorted.add(b.get(indexB)); //add to ArrayList sorted, the value in ArrayList b
             indexB++; //increment the index in ArrayList b
           }
-          else if (indexB > 19)
+          else if (indexB > (b.size()-1))
           {
+
             sorted.add(a.get(indexA)); //add to ArrayList sorted, the value in ArrayList a
             indexA++; //increment the index in ArrayList a
+
           }
 
           //Else both lists have at least one space, and the values can be compared, and the element can be added, and the index can be incremented.
@@ -151,13 +154,16 @@ public class SortDemo{
 
               sorted.add(b.get(indexB)); //add to ArrayList sorted, the value in ArrayList b
               indexB++; //increment the index in ArrayList b
+
             }
 
             //If the element in ArrayList b is greater than
             //the element in ArrayList a...
             else if (a.get(indexA) < b.get(indexB)){
+
               sorted.add(a.get(indexA)); //add to ArrayList sorted, the value in ArrayList a
               indexA++; //increment the index in ArrayList a
+
             }
 
             //If the elements in the 2 ArrayLists are equal...
@@ -167,14 +173,54 @@ public class SortDemo{
               // sorted.add(b.get(indexB));
               // indexB++;
               // i++;
-            }
-          }
+            } //end of else if
+          }//end of else
         }//end of for loop
 
-
-
-        //Have pointers to look at each index in ArrayList a and ArrayList B
+        //Return the ArrayList sorted
         return sorted;
+    }
+
+    /*
+      Parameters: l - an ArrayList
+
+      Returns: a new, sorted ArrayList
+      This routine should implement the mergesort algorithm.
+    */
+    public ArrayList<Integer> msort(ArrayList<Integer> l){
+
+    	ArrayList<Integer> left = null;
+    	ArrayList<Integer> right = null;
+
+//mergesort (sorts and combines)
+  //merge (combines)
+
+    	// base case - if the input ArrayList is smaller than 2 elements
+
+      if (l.size() < 2) {
+
+        return l;
+
+      }
+      // split l into left and right halves
+      else {
+
+        left = new ArrayList<Integer>(l.subList(0,l.size()/2));
+        right = new ArrayList<Integer>(l.subList((l.size()/2),l.size()));
+
+        System.out.println(left);
+        System.out.println(right);
+      }
+
+      // sort the left half, sort the right half
+      // merge the two halves that have been sorted
+      // return the result
+      return merge(msort(left), msort(right));
+
+      }//method
+
+    public void msortTest(){
+	     data = msort(data);
     }
 
   private ArrayList<Integer> fillForMerge(int size){
