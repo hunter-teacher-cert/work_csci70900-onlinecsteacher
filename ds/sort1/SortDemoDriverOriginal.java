@@ -37,6 +37,5 @@ public class SortDemoDriver {
   System.out.println("What index is 0 at in sd2? " + sd2.linearSearch(0));
 
 
-
   }
 }
