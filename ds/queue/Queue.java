@@ -16,35 +16,6 @@ size() <-- returns the number of items in the queue
 //Create a public class for Queue, called from Driver
 public class Queue {
 
-  //Create a private Node class within queue
-  private class Node {
-
-    private int data;
-    private Node next;
-
-    public Node() {
-      int data;
-      next = null;
-    }//default constructor
-
-    public Node(int value) {
-      data = value;
-      next = null;
-    }//constructor(value)
-
-    /*
-    public Node(int value, Node next) {
-    data = value;
-    this.next = next;
-  }//constructor(value, next)
-  */
-
-    public int getValue() {
-      return data;
-    }//end getValue
-  }
-
-
 private Node head;    //head Node
 private Node tail;    //tail Node
 private int size = 0; //size of queue
@@ -58,9 +29,20 @@ public void enqueue(int value) {
   // If this is the first node in the queue set it to the head
   if (head == null){
     head = n;
-  } else {
-    // Else set the new node as the tail
     tail = n;
+  } //Else if it's not the first node in the queue, update the tail
+  else
+  {
+
+    //Create a temporary Node to traverse the queue
+    Node temp = new Node();
+
+    // Else set the tail to point to the new Node
+    tail.setNext(n);
+
+    //Set the new node to be the new tail
+    tail = n;
+
   }
 
   //increment size variable
@@ -70,7 +52,24 @@ public void enqueue(int value) {
 
 // Remove and return the value at the front of the queue
 public int dequeue() {
-  return 0;
+
+  //If queue is empty, throw an error and return
+  if (size == 0) {
+    System.out.println("Queue is empty");
+    return -1;
+  }
+
+  //Find the value at the front
+  int value = head.getValue();
+
+  // Point head to the next value
+  head = head.getNext();
+
+  //Decrement size variable
+  size--;
+
+  // Return front value
+  return value;
 }
 
 // Return but don't remove the value at the front
@@ -81,7 +80,11 @@ public int front() {
 
 // Returns true if the queue is empty
 public boolean isEmpty() {
-  return true;
+  if (head == null) { //if the head node is empty...
+    return true;      //...return true
+  } else {
+    return false;     //...else return false
+  }
 }
 
 // Returns the number of items in the queue
