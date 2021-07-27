@@ -68,7 +68,10 @@ public class BSTree {
     else {
     System.out.println("2 children");
       // front has two children
-      //
+
+      //Create a temporary Node
+      TreeNode temp = new TreeNode();
+
       // find the node with the largest value on fronts left subtree
       // and replace front with it.
       //i.e. go left once and go as far right as possible
@@ -77,18 +80,47 @@ public class BSTree {
         front = front.getRight(); //keep processing right node
         System.out.println("looped");
       }
+
+
       System.out.println(front.getData());
       //then connect the trailer to the new front Node
-      if(front.getData() < trailer.getData()){ //if key is to the left of trailer
+      if(front.getData() < trailer.getData())
+      { //if key is to the left of trailer
         front.setRight(trailer.getLeft().getRight());
-        front.setLeft(trailer.getLeft().getLeft());
-        System.out.println("Key to the left of trailer");
-        System.out.println(front.getData());
-      } else { //if key is to the right of trailer
+
+        //If the node being deleted has a child on the left,
+        if (trailer.getLeft().getLeft().getLeft() != null) {
+          //Point the new parent node to that child
+          front.setLeft(trailer.getLeft().getLeft());
+
+          //The node before the new front node now points to null
+          front.getLeft().setRight(null);
+        }
+
+        //Point trailer to the new node
+        trailer.setLeft(front);
+
+        // System.out.println("Key to the left of trailer");
+        // System.out.println(front.getData());
+      }
+      else
+      { //if key is to the right of trailer
         front.setLeft(trailer.getRight().getLeft());
-        front.setRight(trailer.getRight().getRight());
-        System.out.println("Key to the right of trailer");
-        System.out.println(front.getData());
+
+        //If the node being deleted has a child on the right,
+        if (front.getRight() != null) { //change to temp trailer
+          //Point the new parent node to that child
+          front.setRight(trailer.getRight().getRight());
+
+          //The node before the new front node now points to null
+          front.getLeft().setRight(null);
+        }
+
+        //Point trailer to the new node
+        trailer.setRight(front);
+
+        // System.out.println("Key to the right of trailer");
+        // System.out.println(front.getData());
       }
 
       //have the new front node point to what the old node pointed to

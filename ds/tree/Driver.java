@@ -16,8 +16,10 @@ public class Driver {
 		t.insert(25);
     t.insert(2);
     t.insert(4);
-    t.insert(19);
     t.insert(18);
+    t.insert(19);
+    t.insert(17);
+
 
     int value;
     value = t.search(10);
@@ -56,7 +58,7 @@ public class Driver {
     // t.inorderTraverse();
 
     t.delete(5);
-  //  t.inorderTraverse();
+    t.inorderTraverse();
 
   }
 }
