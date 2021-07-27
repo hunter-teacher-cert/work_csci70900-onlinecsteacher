@@ -1,6 +1,8 @@
 
 How do we get students to set up Jsoup?
 
+TEAM: EMMA. ALEX, EDUARDO, MR.H, MARINA
+
 Warm Up: Research online about jsoup and what it is used for. Find any feature your personally would be interested to use?
 - Discussion of real world applications, e.g. words appearing in different headlines, web scraping of different Twitter accounts, etc.
 
