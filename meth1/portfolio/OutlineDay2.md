@@ -1,0 +1,2 @@
+Outline Day 2
+https://docs.google.com/document/d/1PkcP6D_CdKQH49U4v9N6yvf-I6puCNjI-1uBkha-QHk/edit?usp=sharing
