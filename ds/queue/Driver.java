@@ -33,9 +33,18 @@ public class Driver {
     System.out.println("Take from front of queue: " + queue1.dequeue());
     System.out.println("Take from front of queue: " + queue1.dequeue());
     System.out.println("Take from front of queue: " + queue1.dequeue());
-    queue1.dequeue();
-    queue1.dequeue();
 
+    //Test dequeue() method
+    try{
+
+      //Check dequeue() method on empty queue
+      System.out.println("Dequeue value: " + queue1.dequeue());
+
+    } catch (Exception e){
+
+      //If queue is empty print the following statement
+      System.out.println("Queue is empty, cannot dequeue");
+    }
 
     //Create a new object of Queue class, called queue2
     System.out.println("\nCreate queue2:");
@@ -47,7 +56,28 @@ public class Driver {
     //Check is queue2 is empty
     System.out.println("Queue 2 is empty: " + queue2.isEmpty()); //returns true
 
-    //Check dequeue() method on empty queue
-    queue1.dequeue();
+    //Test front() method
+    try{
+
+      //Check front() method on empty queue
+      System.out.println("Front value in queue: " + queue2.front());
+
+    } catch (Exception e){
+
+      //If queue is empty print the following statement
+      System.out.println("Queue is empty (front node == null)");
+    }
+
+    //Test dequeue() method
+    try{
+
+      //Check dequeue() method on empty queue
+      System.out.println("Dequeue value: " + queue2.dequeue());
+
+    } catch (Exception e){
+
+      //If queue is empty print the following statement
+      System.out.println("Queue is empty, cannot dequeue");
+    }
   }
 }

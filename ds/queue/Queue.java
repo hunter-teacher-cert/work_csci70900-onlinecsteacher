@@ -34,14 +34,14 @@ public class Queue {
 
     // If this is the first node in the queue set it to the head
     if (head == null){
+
+      //Set head and tail to new node n
       head = n;
       tail = n;
+
     } //Else if it's not the first node in the queue, update the tail
     else
     {
-
-      //Create a temporary Node to traverse the queue
-      Node temp = new Node();
 
       // Else set the tail to point to the new Node
       tail.setNext(n);
@@ -58,10 +58,9 @@ public class Queue {
   // Remove and return the value at the front of the queue
   public int dequeue() {
 
-    //If queue is empty, throw an error and return
+    //If queue is empty, print a warning and return
     if (size == 0) {
-      System.out.println("Queue is empty");
-      return -1;
+      throw new NullPointerException();
     }
 
     //Find the value at the front
@@ -79,6 +78,12 @@ public class Queue {
 
   // Return but don't remove the value at the front
   public int front() {
+
+    //If front() is called on an empty queue throw an exception
+    if (head == null) {
+      throw new NullPointerException();
+    }
+
     int value = head.getValue(); //find the value at the front
     return value;
   }
