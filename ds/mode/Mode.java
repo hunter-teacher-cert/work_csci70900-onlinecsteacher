@@ -6,6 +6,7 @@ import java.util.*;
 public class Mode{
   private ArrayList<Integer> inputData;
   private Random r;
+  private int maxVal = 50;
 
   public Mode(){
     r = new Random();
@@ -150,6 +151,29 @@ public class Mode{
 
     //Return the mode
     return modeValue;
+  }
+
+  public int fastMode(){
+    int[] tallies = new int[maxVal];
+    int i;
+    for (i=0;i<maxVal; i++){
+      tallies[i]=0;
+    }
+
+    for (i=0;i<inputData.size();i++){
+      int v = inputData.get(i);
+      tallies[v] = tallies[v] + 1;
+    }
+
+    int maxIndex = 0;
+    int maxCount = tallies[0];
+    for (i=0;i<maxVal;i++){
+      if (tallies[i] > maxCount){
+        maxCount = tallies[i];
+        maxIndex = i;
+      }
+    }
+    return maxIndex;
   }
 
   public String toString(){

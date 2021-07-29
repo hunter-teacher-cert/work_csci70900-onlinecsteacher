@@ -29,6 +29,9 @@ public class Driver{
     System.out.println("Test calcModeOriginal():");
     System.out.println(m.calcModeOriginal());
 
+    System.out.println("Test fastMode():");
+    System.out.println(m.fastMode());
+
 /*
 ------------------------------------------------------
 Test timing
