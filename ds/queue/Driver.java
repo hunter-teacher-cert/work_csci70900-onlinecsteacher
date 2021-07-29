@@ -6,6 +6,9 @@ public class Driver {
     System.out.println("Create queue1:");
     Queue queue1 = new Queue();
 
+    //Check is queue2 is empty
+    System.out.println("Queue 1 is empty: " + queue1.isEmpty()); //returns true
+
     //Check size of queue after initializing
     System.out.println("Size of queue: " + queue1.size()); //returns 0
 
