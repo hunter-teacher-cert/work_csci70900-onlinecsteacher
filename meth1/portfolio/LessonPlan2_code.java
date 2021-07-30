@@ -4,7 +4,15 @@ Instructions:
 
 public class LessonPlan2_code {
 
-  public static int changeOutput(int x, int y){
+  public static void oneParameter(int x){
+    int a = 5;
+    int b = x;
+
+    b = b + a;
+    System.out.println(b);
+  }
+
+  public static void twoParameters(int x, int y){
     int a = 5;
     int b = x;
     int c = y;
@@ -18,7 +26,7 @@ public class LessonPlan2_code {
 
     if (c == 3){
 
-      c = c*2; //Will this value change, why or why not?
+      c = c*2; //Will this value ever change, why or why not?
       System.out.println("Apple"); //Step 1
       //System.out.println(c); //Step 2
 
@@ -44,23 +52,31 @@ public class LessonPlan2_code {
     //What is the value of c?
     //Which if any of the variables will remain constant?
 
-    return c;
-
   }
 
   public static void main(String[] args) {
 
+    //Teacher Demo
+
+    //x = 2
+    oneParameter(2);
+
+    //x = 3
+    oneParameter(-10);
+
+
     //Step 1:
     //Consider the following inputs and trace through their outputs:
 
+    //Teacher Demo
     //x = 2, y = 3;
-    changeOutput(2, 3);
+    twoParameters(2, 3);
 
     //int x = 4, y = 1;
-    changeOutput(4, 1);
+    twoParameters(4, 1);
 
     //int x = 5, y = 5;
-    changeOutput(5, 5);
+    twoParameters(5, 5);
 
 
     //Step 2:
@@ -68,13 +84,13 @@ public class LessonPlan2_code {
     //Consider the following inputs and trace through their outputs:
 
     //x = 2, y = 3;
-    changeOutput(2, 3);
+    twoParameters(2, 3);
 
     //int x = 4, y = 1;
-    changeOutput(4, 1);
+    twoParameters(4, 1);
 
     //int x = 5, y = 5;
-    changeOutput(5, 5);
+    twoParameters(5, 5);
 
   }
 }
